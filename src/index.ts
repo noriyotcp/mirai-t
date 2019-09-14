@@ -1,14 +1,7 @@
-const argNum : number = Number(process.argv[2]);
+const [,, ...argStr] = process.argv;
 
-function fizzbuzz(num : number) : string {
-  if (num % 15 === 0) {
-    return "FizzBuzz";
-  } else if (num % 3 === 0) {
-    return "Fizz";
-  } else if (num % 5 === 0) {
-    return "Buzz";
-  }
-  return num.toString();
+function fizzbuzz(num : string[]) : string {
+  return num.join('');
 }
 
-console.log(fizzbuzz(argNum));
+console.log(fizzbuzz(argStr));
