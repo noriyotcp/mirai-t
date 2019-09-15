@@ -1,5 +1,7 @@
+import { LANGUAGES } from "./languages";
+
 export function translate(json: string): object {
-  console.log(json);
+  console.log(convertTextToJaText(json));
   return {
     status: "success",
     outputs: [
@@ -11,6 +13,21 @@ export function translate(json: string): object {
   };
 }
 
+function convertTextToJaText(json: string) {
+  const source = LANGUAGES.find(lang => {
+    return (
+      lang.text === JSON.parse(json).source ||
+      lang.id === JSON.parse(json).source
+    );
+  })!.jaText;
+  const target = LANGUAGES.find(lang => {
+    return (
+      lang.text === JSON.parse(json).target ||
+      lang.id === JSON.parse(json).target
+    );
+  })!.jaText;
+  return { source, target, text: JSON.parse(json).text };
+}
 // maxlength="2000" がインプット側に設定されているが、超えた場合はこのようなレスポンスが返ってくる
 // {"status":"failed","error_msg":"input string is too long."}
 

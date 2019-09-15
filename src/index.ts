@@ -1,5 +1,6 @@
 import program from "commander";
 import * as interactive from "./interactive";
+import { LANGUAGES } from "./languages";
 import * as translater from "./translate";
 
 program.name("mirai-t").usage("<string> [global options]");
@@ -20,10 +21,23 @@ program.on("option:interactive", () => {
   interactive.prompt();
 });
 
+program.on("option:source", (lang: string) => {
+  if (!validateLang(lang)) {
+    console.log("Choose a valid language!");
+    process.exit(1);
+  }
+});
+
+program.on("option:target", (lang: string) => {
+  if (!validateLang(lang)) {
+    console.log("Choose a valid language!");
+    process.exit(1);
+  }
+});
+
 program.parse(process.argv);
 
 if (!program.interactive) {
-  console.log("not interactive");
   const params = createParams(program.args);
   console.log(translater.translate(params));
 }
@@ -32,4 +46,10 @@ function createParams(words: string[]): string {
   const { source, target } = program.opts();
   const str = words.join(" ").trim();
   return JSON.stringify({ source, target, text: `${str}` }, null, " ");
+}
+
+function validateLang(optValue: string): object | undefined {
+  return LANGUAGES.find(lang => {
+    return lang.text === optValue || lang.id === optValue;
+  });
 }
