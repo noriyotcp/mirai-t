@@ -17,18 +17,18 @@ program.on("option:debug", () => {
   console.log(program.opts());
 });
 
-program.on("option:interactive", () => {
+program.on("option:interactive", (): void => {
   interactive.prompt();
 });
 
-program.on("option:source", (lang: string) => {
+program.on("option:source", (lang: string): void => {
   if (!validateLang(lang)) {
     console.log("Choose a valid language!");
     process.exit(1);
   }
 });
 
-program.on("option:target", (lang: string) => {
+program.on("option:target", (lang: string): void => {
   if (!validateLang(lang)) {
     console.log("Choose a valid language!");
     process.exit(1);
