@@ -1,10 +1,10 @@
 /* tslint:disable:object-literal-sort-keys */
-import inquirer from "inquirer";
-import * as translater from "./translate";
+import inquirer, { QuestionCollection } from "inquirer";
 import { LANGUAGES } from "./languages";
+import * as translater from "./translate";
 
 export function prompt(): void {
-  const questions: object[] = [
+  const questions: QuestionCollection = [
     {
       type: "list",
       name: "source",
