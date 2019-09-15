@@ -1,5 +1,6 @@
 import program from "commander";
 import * as interactive from "./interactive";
+import * as translater from "./translate";
 
 program.name("mirai-t").usage("<string> [global options]");
 
@@ -21,24 +22,14 @@ program.on("option:interactive", () => {
 
 program.parse(process.argv);
 
-if (program.source) {
-  console.log(`Source - ${program.source}`);
-}
-if (program.target) {
-  console.log(`Target - ${program.target}`);
-}
-
-function printWords(words: string[]): string {
-  const str = words.join(" ");
-  return `${str}`;
+if (!program.interactive) {
+  console.log("not interactive");
+  const params = createParams(program.args);
+  console.log(translater.translate(params));
 }
 
-console.log(printWords(program.args));
-
-// maxlength="2000" がインプット側に設定されているが、超えた場合はこのようなレスポンスが返ってくる
-// {"status":"failed","error_msg":"input string is too long."}
-
-// {"status":"success","outputs":[{"output":"I have seen three pictures of the man. Ichiyo is a photograph of the man in his childhood, when it is presumed that he was around ten years old, and his child was surrounded by many women, (it is supposed to be his sisters, his sisters, and his cousins) standing by the pond in the garden in a striped hakama with a kama on it, tilting his head about 30 degrees to the left, and smiling ugly."}]}
-
-// 改行は翻訳結果にも含まれている
-// {"status":"success","outputs":[{"output":"I have seen three pictures of the man.\n\nIchiyo is a photograph of the man in his childhood, when it is presumed that he was around ten years old, and his child was surrounded by many women, (it is supposed to be his sisters, his sisters, and his cousins) standing by the pond in the garden in a striped hakama with a kama on it, tilting his head about 30 degrees to the left, and smiling ugly."}]}
+function createParams(words: string[]): string {
+  const { source, target } = program.opts();
+  const str = words.join(" ").trim();
+  return JSON.stringify({ source, target, text: `${str}` }, null, " ");
+}

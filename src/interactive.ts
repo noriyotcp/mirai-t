@@ -1,5 +1,6 @@
 /* tslint:disable:object-literal-sort-keys */
 import inquirer from "inquirer";
+import * as translater from "./translate";
 
 export function prompt(): void {
   const questions: object[] = [
@@ -20,18 +21,15 @@ export function prompt(): void {
     {
       type: "editor",
       name: "text",
-      message: "Please enter text"
-      // validate: text => {
-      //   // if (text.split("\n").length < 3) {
-      //   //   console.log(text);
-      //   //   return "Must be at least 3 lines.";
-      //   // }
-      //   return true;
-      // }
+      message: "Please enter text",
+      filter: (text: string): string => {
+        return text.trim();
+      }
     }
   ];
 
   inquirer.prompt(questions).then(answers => {
-    console.log(JSON.stringify(answers, null, " "));
+    const result: string = JSON.stringify(answers, null, " ");
+    console.log(translater.translate(result));
   });
 }
