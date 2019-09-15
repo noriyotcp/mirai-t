@@ -1,6 +1,7 @@
 /* tslint:disable:object-literal-sort-keys */
 import inquirer from "inquirer";
 import * as translater from "./translate";
+import { LANGUAGES } from "./languages";
 
 export function prompt(): void {
   const questions: object[] = [
@@ -9,14 +10,14 @@ export function prompt(): void {
       name: "source",
       message: "Please select a source language",
       default: "Japanese",
-      choices: ["Japanese", "English"]
+      choices: LANGUAGES.map(lang => lang.text)
     },
     {
       type: "list",
       name: "target",
       message: "Please select a target language",
       default: "English",
-      choices: ["Japanese", "English"]
+      choices: LANGUAGES.map(lang => lang.text)
     },
     {
       type: "editor",
