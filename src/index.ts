@@ -1,4 +1,5 @@
 import program from "commander";
+import * as interactive from "./interactive";
 
 program.name("mirai-t").usage("<string> [global options]");
 
@@ -9,17 +10,26 @@ program
   .option("-s, --source <language>", "source language")
   .option("-t, --target <language>", "target language");
 
-program.on('option:debug', function () {
-  console.log('Debug!');
+program.on("option:debug", () => {
+  console.log("Debug!");
   console.log(program.opts());
-})
+});
+
+program.on("option:interactive", () => {
+  interactive.prompt();
+});
+
 program.parse(process.argv);
 
-if (program.source) console.log(`Sourece - ${program.source}`);
-if (program.target) console.log(`Target - ${program.target}`);
+if (program.source) {
+  console.log(`Source - ${program.source}`);
+}
+if (program.target) {
+  console.log(`Target - ${program.target}`);
+}
 
-function printWords(words : string[]) : string {
-  const str = words.join(' ');
+function printWords(words: string[]): string {
+  const str = words.join(" ");
   return `${str}`;
 }
 
