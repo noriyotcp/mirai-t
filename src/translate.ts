@@ -13,6 +13,10 @@ export function translate(json: string): object {
   };
 }
 
+export const mockFunc = {
+  translate
+};
+
 function convertTextToJaText(json: string) {
   const source = LANGUAGES.find(lang => {
     return (
