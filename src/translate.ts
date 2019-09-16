@@ -1,16 +1,10 @@
+import { Crawler } from "./crawler";
 import { LANGUAGES } from "./languages";
 
-export function translate(json: string): object {
+export function translate(json: string): void {
   console.log(convertTextToJaText(json));
-  return {
-    status: "success",
-    outputs: [
-      {
-        output:
-          "I have seen three pictures of the man.\n\nIchiyo is a photograph of the man in his childhood, when it is presumed that he was around ten years old, and his child was surrounded by many women, (it is supposed to be his sisters, his sisters, and his cousins) standing by the pond in the garden in a striped hakama with a kama on it, tilting his head about 30 degrees to the left, and smiling ugly."
-      }
-    ]
-  };
+  const c = new Crawler("https://miraitranslate.com/trial/");
+  c.crawl();
 }
 
 export const mockFunc = {
