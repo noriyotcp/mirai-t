@@ -35,6 +35,11 @@ program.on("option:target", (lang: string): void => {
   }
 });
 
+// Show help with no arguments
+if (process.argv.length < 3) {
+  program.help();
+}
+
 program.parse(process.argv);
 
 if (!program.interactive) {
