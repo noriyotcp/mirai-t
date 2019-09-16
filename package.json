@@ -6,6 +6,9 @@
   "author": "noriyotcp <noriyo.akita@gmail.com>",
   "license": "MIT",
   "private": false,
+  "bin": {
+    "mirai-t": "./bin/mirai-t.js"
+  },
   "scripts": {
     "watch": "webpack --watch",
     "build": "webpack -p",
