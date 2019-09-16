@@ -7,11 +7,11 @@ export class Crawler {
     this.baseUrl = baseUrl;
   }
 
-  public crawl(): void {
+  public crawl(params: { source: string; target: string; text: string }): void {
     (async () => {
       // Wait for browser launching.
       const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         slowMo: 50
       });
       const page = await browser.newPage();
@@ -20,53 +20,50 @@ export class Crawler {
 
       await page.setViewport({ width: 1200, height: 800 });
 
-      await page.waitForSelector("textarea#translateSourceInput");
-      // await page.click("#translateSourceInput");
-      await page.type(
-        "textarea#translateSourceInput",
-        "これはペンです。\n複数行だとどうなるの？"
-      );
+      const sourceInput = "textarea#translateSourceInput";
+      await page.waitForSelector(sourceInput);
+      await page.type(sourceInput, `${params.text}`);
 
       // Select Japanese
-      await page.waitForSelector(
-        ".sourceLanguageDiv #select2-sourceButtonUrlTranslation-container"
-      );
-      await page.click(
-        ".sourceLanguageDiv #select2-sourceButtonUrlTranslation-container"
-      );
+      const sourceSelect =
+        ".sourceLanguageDiv #select2-sourceButtonUrlTranslation-container";
+      await page.waitForSelector(sourceSelect);
+      await page.click(sourceSelect);
 
       const [sourceButton] = await page.$x(
-        `//*[@id="select2-sourceButtonUrlTranslation-results"]/li[contains(., "日本語")]`
+        `//*[@id="select2-sourceButtonUrlTranslation-results"]/li[contains(., "${params.source}")]`
       );
       if (sourceButton) {
         await sourceButton.click();
       }
 
       // Select English
-      await page.waitForSelector(
-        ".targetLanguageDiv #select2-targetButtonTextTranslation-container"
-      );
-      await page.click(
-        ".targetLanguageDiv #select2-targetButtonTextTranslation-container"
-      );
+      const targetSelect =
+        ".targetLanguageDiv #select2-targetButtonTextTranslation-container";
+      await page.waitForSelector(targetSelect);
+      await page.click(targetSelect);
 
       const [targetButton] = await page.$x(
-        `//*[@id="select2-targetButtonTextTranslation-results"]/li[contains(., "英語")]`
+        `//*[@id="select2-targetButtonTextTranslation-results"]/li[contains(., "${params.target}")]`
       );
       if (targetButton) {
         await targetButton.click();
       }
 
       // Submit
-      await page.waitForSelector("button#translateButtonTextTranslation");
-      // await page.click("button#translateButtonTextTranslation");
+      const translateButton = "button#translateButtonTextTranslation";
+      await page.waitForSelector(translateButton);
 
       const [response] = await Promise.all([
         page.waitForResponse("https://miraitranslate.com/trial/translate.php"),
-        page.click("button#translateButtonTextTranslation")
+        page.click(translateButton)
       ]);
-      const responseJson: string = await response.json();
-      console.log(responseJson);
+      const responseJson: {
+        status: string;
+        outputs: [{ output: string }];
+      } = await response.json();
+      console.log(responseJson.outputs[0].output);
+      browser.close();
     })();
   }
 }

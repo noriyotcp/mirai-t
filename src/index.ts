@@ -44,12 +44,16 @@ program.parse(process.argv);
 
 if (!program.interactive) {
   const params = createParams(program.args);
-  console.log(translater.translate(params));
+  translater.translate(params);
 }
 
 function createParams(words: string[]): string {
   const { source, target } = program.opts();
   const str = words.join(" ").trim();
+  if (str.length === 0) {
+    console.log("Please input text to translate");
+    process.exit(1);
+  }
   return JSON.stringify({ source, target, text: `${str}` }, null, " ");
 }
 

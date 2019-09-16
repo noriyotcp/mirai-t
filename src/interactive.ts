@@ -25,12 +25,20 @@ export function prompt(): void {
       message: "Please enter text",
       filter: (text: string): string => {
         return text.trim();
+      },
+      validate: (text: string): boolean => {
+        if (text.length === 0) {
+          console.log("Please input text to translate");
+          return false;
+        }
+        return true;
       }
     }
   ];
 
   inquirer.prompt(questions).then(answers => {
     const result: string = JSON.stringify(answers, null, " ");
-    console.log(translater.translate(result));
+    console.log(answers.text);
+    translater.translate(result);
   });
 }
