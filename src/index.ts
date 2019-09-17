@@ -2,10 +2,12 @@ import program, { CommanderStatic } from "commander";
 import * as interactive from "./interactive";
 import { LANGUAGES } from "./languages";
 import * as translater from "./translate";
+// tslint:disable-next-line: no-var-requires
+const pj = require("../package.json");
 
 program.name("mirai-t").usage("<string> [global options]");
 
-program.version("0.0.1", "-v, --version");
+program.version(`${pj.version}`, "-v, --version");
 program
   .option("-d, --debug", "output extra debugging")
   .option("-i, --interactive", "interactive mode")
