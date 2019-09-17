@@ -11,10 +11,6 @@ export function translate(json: string): void {
   c.crawl(params);
 }
 
-export const mockFunc = {
-  translate
-};
-
 function convertTextToJaText(
   json: string
 ): { source: string; target: string; text: string } {

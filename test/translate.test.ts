@@ -1,34 +1,25 @@
+import { Crawler } from "../src/crawler";
 import * as translater from "../src/translate";
 
-describe("basic again", () => {
-  beforeEach(() => {
-    translater.mockFunc.translate = jest.fn((json: string) => {
-      console.log(json);
-      return {
-        status: "success",
-        outputs: [
-          {
-            output: "This is a mock."
-          }
-        ]
-      };
-    });
-  });
+jest.mock("../src/crawler");
 
-  test("fetch data", () => {
-    const actual = translater.mockFunc.translate(`{
+describe("translate", () => {
+  it("calls Crawler.crawl", () => {
+    const spyConsoleLog = jest.spyOn(console, "log");
+    const mockCrawl = jest.spyOn(Crawler.prototype, "crawl");
+    translater.translate(`{
       "source": "Japanese",
       "target": "English",
-      "text": "This is a mock."
+      "text": "これはモックです。"
     }`);
-    const expected = {
-      status: "success",
-      outputs: [
-        {
-          output: "This is a mock."
-        }
-      ]
-    };
-    expect(expected).toEqual(actual);
+    const expected = "This is a mock.";
+    expect(spyConsoleLog.mock.calls[0][0]).toEqual(expected);
+
+    expect(mockCrawl.mock.instances[0]).toBeInstanceOf(Crawler);
+    expect(mockCrawl).toHaveBeenCalledWith({
+      source: "日本語",
+      target: "英語",
+      text: "これはモックです。"
+    });
   });
 });
