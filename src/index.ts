@@ -1,4 +1,4 @@
-import program from "commander";
+import program, { CommanderStatic } from "commander";
 import * as interactive from "./interactive";
 import { LANGUAGES } from "./languages";
 import * as translater from "./translate";
@@ -42,9 +42,18 @@ if (process.argv.length < 3) {
 
 program.parse(process.argv);
 
+// Single Line mode
 if (!program.interactive) {
+  isSourceOrTargetMissed(program);
   const params = createParams(program.args);
   translater.translate(params);
+}
+
+function isSourceOrTargetMissed(prog: CommanderStatic) {
+  if (!prog.source || !prog.target) {
+    console.log("Source and Target are both required.");
+    process.exit(1);
+  }
 }
 
 function createParams(words: string[]): string {
