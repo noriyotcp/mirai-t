@@ -23,14 +23,14 @@ program.on("option:interactive", (): void => {
 
 program.on("option:source", (lang: string): void => {
   if (!validateLang(lang)) {
-    console.log("Choose a valid language!");
+    console.log("This language is not available.");
     process.exit(1);
   }
 });
 
 program.on("option:target", (lang: string): void => {
   if (!validateLang(lang)) {
-    console.log("Choose a valid language!");
+    console.log("This language is not available.");
     process.exit(1);
   }
 });
@@ -51,7 +51,7 @@ function createParams(words: string[]): string {
   const { source, target } = program.opts();
   const str = words.join(" ").trim();
   if (str.length === 0) {
-    console.log("Please input text to translate");
+    console.log("Please input the text to translate.");
     process.exit(1);
   }
   return JSON.stringify({ source, target, text: `${str}` }, null, " ");

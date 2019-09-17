@@ -8,14 +8,14 @@ export function prompt(): void {
     {
       type: "list",
       name: "source",
-      message: "Please select a source language",
+      message: "Please select a source language.",
       default: "Japanese",
       choices: LANGUAGES.map(lang => lang.text)
     },
     {
       type: "list",
       name: "target",
-      message: "Please select a target language",
+      message: "Please select a target language.",
       default: "English",
       choices: LANGUAGES.map(lang => lang.text)
     },
@@ -28,7 +28,7 @@ export function prompt(): void {
       },
       validate: (text: string): boolean => {
         if (text.length === 0) {
-          console.log("Please input text to translate");
+          console.log("Please input the text to translate.");
           return false;
         }
         return true;

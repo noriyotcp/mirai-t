@@ -24,7 +24,7 @@ export class Crawler {
       await page.waitForSelector(sourceInput);
       await page.type(sourceInput, `${params.text}`);
 
-      // Select Japanese
+      // Select a source language
       const sourceSelect =
         ".sourceLanguageDiv #select2-sourceButtonUrlTranslation-container";
       await page.waitForSelector(sourceSelect);
@@ -37,7 +37,7 @@ export class Crawler {
         await sourceButton.click();
       }
 
-      // Select English
+      // Select a target language
       const targetSelect =
         ".targetLanguageDiv #select2-targetButtonTextTranslation-container";
       await page.waitForSelector(targetSelect);
@@ -67,3 +67,6 @@ export class Crawler {
     })();
   }
 }
+
+// Such a response returns when the text is over 2000 characters
+// {"status":"failed","error_msg":"input string is too long."}
