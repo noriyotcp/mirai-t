@@ -23,7 +23,7 @@ $ mirai-t -s English -t Japanese This is the test.
 You can also use [ISO 639-1](http://www.loc.gov/standards/iso639-2/php/English_list.php).
 
 ```sh
-$ mirai-t -s en -t jp This is the test.
+$ mirai-t -s en -t ja This is the test.
 これがテストです。
 ```
 
