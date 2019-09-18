@@ -14,7 +14,8 @@
     "watch": "tsc --watch",
     "build": "tsc",
     "lint": "tslint -p tsconfig.json",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "tsc"
   },
   "files": [
     "bin",
