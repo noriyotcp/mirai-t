@@ -5,6 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "noriyotcp <noriyo.akita@gmail.com>",
+  "homepage": "https://github.com/noriyotcp/mirai-t",
+  "bugs": {
+    "url": "https://github.com/noriyotcp/mirai-t/issues"
+  },
   "license": "MIT",
   "private": false,
   "bin": {
