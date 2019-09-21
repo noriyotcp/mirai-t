@@ -14,8 +14,9 @@
     "mirai-t": "./bin/mirai-t.js"
   },
   "scripts": {
-    "watch": "tsc --watch",
-    "build": "tsc",
+    "watch": "tsc --build --watch",
+    "build": "tsc --build",
+    "build:clean": "tsc --build --clean",
     "lint": "tslint -p tsconfig.json",
     "test": "jest",
     "prepublishOnly": "tsc"
