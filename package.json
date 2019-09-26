@@ -19,7 +19,7 @@
     "build:clean": "tsc --build --clean",
     "lint": "tslint -p tsconfig.json",
     "test": "jest",
-    "prepublishOnly": "tsc"
+    "prepublishOnly": "tsc --build --clean && tsc --build --force"
   },
   "files": [
     "bin",
