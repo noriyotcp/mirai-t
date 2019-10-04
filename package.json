@@ -3,7 +3,6 @@
   "version": "0.1.2",
   "description": "CLI tool for Mirai Translate (trial), which provides a customizable translation solution",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "author": "noriyotcp <noriyo.akita@gmail.com>",
   "homepage": "https://github.com/noriyotcp/mirai-t",
   "bugs": {
@@ -15,11 +14,12 @@
     "mirai-t": "./bin/mirai-t.js"
   },
   "scripts": {
-    "watch": "tsc --watch",
-    "build": "tsc",
+    "watch": "tsc --build --watch",
+    "build": "tsc --build",
+    "build:clean": "tsc --build --clean",
     "lint": "tslint -p tsconfig.json",
     "test": "jest",
-    "prepublishOnly": "tsc"
+    "prepublishOnly": "tsc --build --clean && tsc --build --force"
   },
   "files": [
     "bin",
