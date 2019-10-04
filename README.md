@@ -1,4 +1,4 @@
-# mirai-t
+# mirai-t ![](https://github.com/noriyotcp/mirai-t/workflows/Node%20CI/badge.svg)
 
 CLI tool for [Mirai Translate](https://miraitranslate.com/en/trial/) (trial), which provides a customizable translation solution.
 
