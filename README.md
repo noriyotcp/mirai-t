@@ -7,8 +7,8 @@ CLI tool for [Mirai Translate](https://miraitranslate.com/en/trial/) (trial), wh
 Use the package manager [yarn](https://yarnpkg.com/lang/en/) or [npm](https://www.npmjs.com).
 
 ```bash
-$ yarn global add mirai-t
-$ npm install -g mirai-t
+$ sudo yarn global add mirai-t
+$ sudo npm install -g mirai-t
 ```
 
 ## Usage
