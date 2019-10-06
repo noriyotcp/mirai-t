@@ -26,7 +26,8 @@ program.on("option:debug", () => {
 });
 
 program.on("option:interactive", (): void => {
-  interactive.prompt();
+  const crawler = new Crawler("https://miraitranslate.com/trial/");
+  interactive.doTranslate(crawler);
 });
 
 program.on("option:source", (lang: string): void => {

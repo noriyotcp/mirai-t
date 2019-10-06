@@ -4,7 +4,7 @@ import { Crawler } from "./crawler";
 import { LANGUAGES } from "./languages";
 import * as translater from "./translate";
 
-export function prompt(): void {
+export function doTranslate(crawler: Crawler): void {
   const questions: QuestionCollection = [
     {
       type: "list",
@@ -40,7 +40,6 @@ export function prompt(): void {
   inquirer.prompt(questions).then(answers => {
     const result: string = JSON.stringify(answers, null, " ");
     console.log(answers.text);
-    const crawler = new Crawler("https://miraitranslate.com/trial/");
     translater.translate(crawler, result);
   });
 }
