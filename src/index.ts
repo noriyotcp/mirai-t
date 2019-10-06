@@ -5,28 +5,22 @@ import { LANGUAGES } from "./languages";
 import * as translater from "./translate";
 // tslint:disable-next-line: no-var-requires
 const pj = require("../package.json");
+const crawler = new Crawler("https://miraitranslate.com/trial/");
 
 program.name("mirai-t").usage("<string> [global options]");
 
 program.version(`${pj.version}`, "-v, --version");
 program
-  .option("-d, --debug", "output extra debugging")
+  .option("-d, --debug", "run the program with launching Chromium in head mode")
   .option("-i, --interactive", "interactive mode")
   .option("-s, --source <language>", "source language")
   .option("-t, --target <language>", "target language");
 
 program.on("option:debug", () => {
-  // const { debug } = program.opts();
-  // if (debug) {
-  //   headless = false;
-  // }
-  // Init Crawler or use setter
-  // console.log("Debug!", headless);
-  console.log(program.opts());
+  crawler.isHeadless = false;
 });
 
 program.on("option:interactive", (): void => {
-  const crawler = new Crawler("https://miraitranslate.com/trial/");
   interactive.doTranslate(crawler);
 });
 
