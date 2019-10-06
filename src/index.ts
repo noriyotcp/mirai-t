@@ -1,4 +1,5 @@
 import program, { CommanderStatic } from "commander";
+import { Crawler } from "./crawler";
 import * as interactive from "./interactive";
 import { LANGUAGES } from "./languages";
 import * as translater from "./translate";
@@ -15,7 +16,12 @@ program
   .option("-t, --target <language>", "target language");
 
 program.on("option:debug", () => {
-  console.log("Debug!");
+  // const { debug } = program.opts();
+  // if (debug) {
+  //   headless = false;
+  // }
+  // Init Crawler or use setter
+  // console.log("Debug!", headless);
   console.log(program.opts());
 });
 
@@ -48,7 +54,8 @@ program.parse(process.argv);
 if (!program.interactive) {
   isSourceOrTargetMissed(program);
   const params = createParams(program.args);
-  translater.translate(params);
+  const crawler = new Crawler("https://miraitranslate.com/trial/");
+  translater.translate(crawler, params);
 }
 
 function isSourceOrTargetMissed(prog: CommanderStatic) {

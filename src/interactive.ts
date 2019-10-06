@@ -1,5 +1,6 @@
 /* tslint:disable:object-literal-sort-keys */
 import inquirer, { QuestionCollection } from "inquirer";
+import { Crawler } from "./crawler";
 import { LANGUAGES } from "./languages";
 import * as translater from "./translate";
 
@@ -39,6 +40,7 @@ export function prompt(): void {
   inquirer.prompt(questions).then(answers => {
     const result: string = JSON.stringify(answers, null, " ");
     console.log(answers.text);
-    translater.translate(result);
+    const crawler = new Crawler("https://miraitranslate.com/trial/");
+    translater.translate(crawler, result);
   });
 }

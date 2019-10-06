@@ -6,12 +6,16 @@ jest.mock("../src/crawler");
 describe("translate", () => {
   it("calls Crawler.crawl", () => {
     const spyConsoleLog = jest.spyOn(console, "log");
-    const mockCrawl = jest.spyOn(Crawler.prototype, "crawl");
-    translater.translate(`{
-      "source": "Japanese",
-      "target": "English",
-      "text": "これはモックです。"
-    }`);
+    const crawler = new Crawler("dummyurl");
+    const mockCrawl = jest.spyOn(crawler, "crawl");
+    translater.translate(
+      crawler,
+      `{
+        "source": "Japanese",
+        "target": "English",
+        "text": "これはモックです。"
+      }`
+    );
     const expected = "This is a mock.";
     expect(spyConsoleLog.mock.calls[0][0]).toEqual(expected);
 
