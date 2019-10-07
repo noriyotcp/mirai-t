@@ -1,10 +1,8 @@
 /* tslint:disable:object-literal-sort-keys */
-import inquirer, { QuestionCollection } from "inquirer";
-import { Crawler } from "./crawler";
+import { QuestionCollection } from "inquirer";
 import { LANGUAGES } from "./languages";
-import * as translater from "./translate";
 
-export function doTranslate(crawler: Crawler): void {
+export function setupQuestions(): QuestionCollection {
   const questions: QuestionCollection = [
     {
       type: "list",
@@ -36,10 +34,5 @@ export function doTranslate(crawler: Crawler): void {
       }
     }
   ];
-
-  inquirer.prompt(questions).then(answers => {
-    const result: string = JSON.stringify(answers, null, " ");
-    console.log(answers.text);
-    translater.translate(crawler, result);
-  });
+  return questions;
 }
