@@ -1,14 +1,13 @@
 import { Crawler } from "./crawler";
 import { LANGUAGES } from "./languages";
 
-export function translate(json: string): void {
+export function translate(crawler: Crawler, json: string): void {
   const params: {
     source: string;
     target: string;
     text: string;
   } = convertTextToJaText(json);
-  const c = new Crawler("https://miraitranslate.com/trial/");
-  c.crawl(params);
+  crawler.crawl(params);
 }
 
 function convertTextToJaText(

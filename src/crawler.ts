@@ -2,16 +2,22 @@ import puppeteer from "puppeteer";
 
 export class Crawler {
   private baseUrl: string;
+  private headless: boolean;
 
-  constructor(baseUrl: string) {
+  constructor(baseUrl: string, headless = true) {
     this.baseUrl = baseUrl;
+    this.headless = headless;
+  }
+
+  set isHeadless(isEnabled: boolean) {
+    this.headless = isEnabled;
   }
 
   public crawl(params: { source: string; target: string; text: string }): void {
     (async () => {
       // Wait for browser launching.
       const browser = await puppeteer.launch({
-        headless: true,
+        headless: this.headless,
         slowMo: 50
       });
       const page = await browser.newPage();

@@ -1,9 +1,8 @@
 /* tslint:disable:object-literal-sort-keys */
-import inquirer, { QuestionCollection } from "inquirer";
+import { QuestionCollection } from "inquirer";
 import { LANGUAGES } from "./languages";
-import * as translater from "./translate";
 
-export function prompt(): void {
+export function setupQuestions(): QuestionCollection {
   const questions: QuestionCollection = [
     {
       type: "list",
@@ -35,10 +34,5 @@ export function prompt(): void {
       }
     }
   ];
-
-  inquirer.prompt(questions).then(answers => {
-    const result: string = JSON.stringify(answers, null, " ");
-    console.log(answers.text);
-    translater.translate(result);
-  });
+  return questions;
 }
