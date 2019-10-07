@@ -1,3 +1,24 @@
+<a name="v0.2.0"></a>
+
+## [v0.2.0](https://github.com/noriyotcp/mirai-t/compare/v0.1.3...v0.2.0) (2019-10-08)
+
+### Add
+
+- Add test against crawler
+- Add CHANGELOG.md
+- Add setupQuestions() to interactive.ts
+  - It just returns questions for the prompt
+
+### Misc
+
+- Enable to let headless mode be false
+- Remove an extra initialization of Crawler
+- Update README.md
+
+### Pull Requests
+
+- Merge pull request [#12](https://github.com/noriyotcp/mirai-t/issues/12) from noriyotcp/switching-headless-mode
+
 <a name="v0.1.3"></a>
 
 ## [v0.1.3](https://github.com/noriyotcp/mirai-t/compare/v0.1.2...v0.1.3) (2019-10-05)

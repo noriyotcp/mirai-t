@@ -1,6 +1,6 @@
 {
   "name": "mirai-t",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "CLI tool for Mirai Translate (trial), which provides a customizable translation solution",
   "main": "dist/index.js",
   "author": "noriyotcp <noriyo.akita@gmail.com>",
