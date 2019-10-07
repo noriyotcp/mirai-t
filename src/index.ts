@@ -49,7 +49,6 @@ program.parse(process.argv);
 if (!program.interactive) {
   isSourceOrTargetMissed(program);
   const params = createParams(program.args);
-  const crawler = new Crawler("https://miraitranslate.com/trial/");
   translater.translate(crawler, params);
 }
 
