@@ -13,7 +13,12 @@ export class Crawler {
     this.headless = isEnabled;
   }
 
-  public crawl(params: { source: string; target: string; text: string }): void {
+  public crawl(params: {
+    source: string;
+    target: string;
+    text: string;
+  }): string {
+    let translation: string = "";
     (async () => {
       // Wait for browser launching.
       const browser = await puppeteer.launch({
@@ -75,11 +80,12 @@ export class Crawler {
       });
     })()
       .then(t => {
-        console.log(t);
+        translation = t as string;
       })
       .catch(_ => {
         return;
       });
+    return translation;
   }
 }
 

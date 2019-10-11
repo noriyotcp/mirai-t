@@ -1,13 +1,13 @@
 import { Crawler } from "./crawler";
 import { LANGUAGES } from "./languages";
 
-export function translate(crawler: Crawler, json: string): void {
+export function translate(crawler: Crawler, json: string): string {
   const params: {
     source: string;
     target: string;
     text: string;
   } = convertTextToJaText(json);
-  crawler.crawl(params);
+  return crawler.crawl(params);
 }
 
 function convertTextToJaText(
