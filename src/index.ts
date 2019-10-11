@@ -25,7 +25,9 @@ program.on("option:debug", () => {
 program.on("option:interactive", (): void => {
   inquirer.prompt(interactive.setupQuestions()).then(answers => {
     console.log(answers.text);
-    translater.translate(crawler, JSON.stringify(answers, null, " "));
+    console.log(
+      translater.translate(crawler, JSON.stringify(answers, null, " "))
+    );
   });
 });
 
@@ -53,7 +55,7 @@ program.parse(process.argv);
 // Single Line mode
 if (!program.interactive) {
   isSourceOrTargetMissed(program);
-  translater.translate(crawler, createParams(program.args));
+  console.log(translater.translate(crawler, createParams(program.args)));
 }
 
 function isSourceOrTargetMissed(prog: CommanderStatic) {
