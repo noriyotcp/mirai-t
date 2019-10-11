@@ -68,9 +68,18 @@ export class Crawler {
         status: string;
         outputs: [{ output: string }];
       } = await response.json();
-      console.log(responseJson.outputs[0].output);
+
       browser.close();
-    })();
+      return new Promise((resolve, _) => {
+        resolve(responseJson.outputs[0].output);
+      });
+    })()
+      .then(t => {
+        console.log(t);
+      })
+      .catch(_ => {
+        return;
+      });
   }
 }
 
