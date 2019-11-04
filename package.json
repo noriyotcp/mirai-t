@@ -27,7 +27,7 @@
     "package.json"
   ],
   "dependencies": {
-    "commander": "^3.0.1",
+    "commander": "^4.0.0",
     "inquirer": "^7.0.0",
     "puppeteer": "^1.20.0"
   },
