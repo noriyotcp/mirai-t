@@ -64,10 +64,17 @@ export class Crawler {
         page.waitForResponse("https://miraitranslate.com/trial/translate.php"),
         page.click(translateButton)
       ]);
-      const responseJson: {
+
+      interface IResponse {
         status: string;
-        outputs: [{ output: string }];
-      } = await response.json();
+        outputs: [
+          {
+            output: string;
+          }
+        ];
+      }
+
+      const responseJson: IResponse = (await response.json()) as IResponse;
       console.log(responseJson.outputs[0].output);
       browser.close();
     })();
