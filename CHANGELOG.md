@@ -1,3 +1,58 @@
+<a name="v0.2.1"></a>
+
+## [v0.2.1](https://github.com/noriyotcp/mirai-t/compare/v0.2.0...v0.2.1) (2019-12-08)
+
+### Bump
+
+- Bump typescript from 3.7.2 to 3.7.3
+- Bump [@types](https://github.com/types)/puppeteer from 1.20.2 to 2.0.0
+- Bump [@types](https://github.com/types)/node from 12.12.7 to 12.12.14
+- Bump ts-jest from 24.1.0 to 24.2.0
+- Bump [@types](https://github.com/types)/jest from 24.0.22 to 24.0.23
+- Bump commander from 4.0.0 to 4.0.1
+- Bump prettier from 1.18.2 to 1.19.1
+- Bump [@types](https://github.com/types)/node from 12.12.6 to 12.12.7
+- Bump puppeteer from 1.20.0 to 2.0.0
+- Bump [@types](https://github.com/types)/jest from 24.0.19 to 24.0.22
+- Bump [@types](https://github.com/types)/node from 12.11.6 to 12.12.6
+- Bump tslint from 5.20.0 to 5.20.1
+- Bump typescript from 3.6.4 to 3.7.2
+- Bump commander from 3.0.2 to 4.0.0
+- Bump [@types](https://github.com/types)/node from 12.7.11 to 12.11.6
+- Bump [@types](https://github.com/types)/jest from 24.0.18 to 24.0.19
+- Bump [@types](https://github.com/types)/puppeteer from 1.20.1 to 1.20.2
+- Bump typescript from 3.6.3 to 3.6.4
+
+### Omit
+
+- Omit Node.js 8.x and 10.x for GitHub Actions
+
+### Use
+
+- Use interface IResponse for response.json()
+
+### Pull Requests
+
+- Merge pull request [#45](https://github.com/noriyotcp/mirai-t/issues/45) from noriyotcp/dependabot/npm_and_yarn/types/puppeteer-2.0.0
+- Merge pull request [#46](https://github.com/noriyotcp/mirai-t/issues/46) from noriyotcp/dependabot/npm_and_yarn/typescript-3.7.3
+- Merge pull request [#40](https://github.com/noriyotcp/mirai-t/issues/40) from noriyotcp/dependabot/npm_and_yarn/types/puppeteer-2.0.0
+- Merge pull request [#41](https://github.com/noriyotcp/mirai-t/issues/41) from noriyotcp/dependabot/npm_and_yarn/ts-jest-24.2.0
+- Merge pull request [#43](https://github.com/noriyotcp/mirai-t/issues/43) from noriyotcp/dependabot/npm_and_yarn/types/node-12.12.14
+- Merge pull request [#36](https://github.com/noriyotcp/mirai-t/issues/36) from noriyotcp/dependabot/npm_and_yarn/types/jest-24.0.23
+- Merge pull request [#35](https://github.com/noriyotcp/mirai-t/issues/35) from noriyotcp/dependabot/npm_and_yarn/commander-4.0.1
+- Merge pull request [#34](https://github.com/noriyotcp/mirai-t/issues/34) from noriyotcp/dependabot/npm_and_yarn/prettier-1.19.1
+- Merge pull request [#33](https://github.com/noriyotcp/mirai-t/issues/33) from noriyotcp/dependabot/npm_and_yarn/types/node-12.12.7
+- Merge pull request [#22](https://github.com/noriyotcp/mirai-t/issues/22) from noriyotcp/dependabot/npm_and_yarn/puppeteer-2.0.0
+- Merge pull request [#27](https://github.com/noriyotcp/mirai-t/issues/27) from noriyotcp/dependabot/npm_and_yarn/commander-4.0.0
+- Merge pull request [#32](https://github.com/noriyotcp/mirai-t/issues/32) from noriyotcp/dependabot/npm_and_yarn/types/jest-24.0.22
+- Merge pull request [#31](https://github.com/noriyotcp/mirai-t/issues/31) from noriyotcp/dependabot/npm_and_yarn/types/node-12.12.6
+- Merge pull request [#30](https://github.com/noriyotcp/mirai-t/issues/30) from noriyotcp/dependabot/npm_and_yarn/tslint-5.20.1
+- Merge pull request [#29](https://github.com/noriyotcp/mirai-t/issues/29) from noriyotcp/dependabot/npm_and_yarn/typescript-3.7.2
+- Merge pull request [#20](https://github.com/noriyotcp/mirai-t/issues/20) from noriyotcp/dependabot/npm_and_yarn/types/node-12.11.6
+- Merge pull request [#16](https://github.com/noriyotcp/mirai-t/issues/16) from noriyotcp/dependabot/npm_and_yarn/types/jest-24.0.19
+- Merge pull request [#15](https://github.com/noriyotcp/mirai-t/issues/15) from noriyotcp/dependabot/npm_and_yarn/types/puppeteer-1.20.2
+- Merge pull request [#14](https://github.com/noriyotcp/mirai-t/issues/14) from noriyotcp/dependabot/npm_and_yarn/typescript-3.6.4
+
 <a name="v0.2.0"></a>
 
 ## [v0.2.0](https://github.com/noriyotcp/mirai-t/compare/v0.1.3...v0.2.0) (2019-10-08)
