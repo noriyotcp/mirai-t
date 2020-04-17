@@ -29,7 +29,7 @@
   "dependencies": {
     "commander": "^4.0.0",
     "inquirer": "^7.0.0",
-    "puppeteer": "^2.0.0"
+    "puppeteer": "^3.0.0"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
