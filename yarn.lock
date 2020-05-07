@@ -3003,9 +3003,9 @@ punycode@^2.1.0, punycode@^2.1.1:
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
 puppeteer@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-3.0.1.tgz#dce04a0b742fbf29f81ff423b2164e84647b4379"
-  integrity sha512-DxNnI9n4grVHC+9irUfNK2T6YFuRECJnvG7VzdVolxpVwWC5DQqI5ho9Z0af48K5MQW4sJY5cq3qQ5g6NkAjvw==
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-3.0.3.tgz#91c4ce46b3822b849e096413457fe8ced7d5aeca"
+  integrity sha512-sWtx9XezIwXdXHNelvnyPEmMjXXiCAuUulEONZFqRO3l+w0vP7dNcGDUIf2HLr4HLLi6r9hcUuO62s/W6rkD/w==
   dependencies:
     "@types/mime-types" "^2.1.0"
     debug "^4.1.0"
